@@ -58,6 +58,10 @@ func New(req *csr.CertificateRequest) (cert, csrPEM, key []byte, err error) {
 		} else {
 			policy.Default.CAConstraint.MaxPathLenZero = req.CA.PathLenZero
 		}
+
+		if req.CA.Usages != nil && len(req.CA.Usages) != 0 {
+			policy.Default.Usage = req.CA.Usages
+		}
 	}
 
 	g := &csr.Generator{Validator: validator}

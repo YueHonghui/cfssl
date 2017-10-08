@@ -130,9 +130,10 @@ func (kr *BasicKeyRequest) SigAlgo() x509.SignatureAlgorithm {
 
 // CAConfig is a section used in the requests initialising a new CA.
 type CAConfig struct {
-	PathLength  int    `json:"pathlen" yaml:"pathlen"`
-	PathLenZero bool   `json:"pathlenzero" yaml:"pathlenzero"`
-	Expiry      string `json:"expiry" yaml:"expiry"`
+	PathLength  int      `json:"pathlen" yaml:"pathlen"`
+	PathLenZero bool     `json:"pathlenzero" yaml:"pathlenzero"`
+	Expiry      string   `json:"expiry" yaml:"expiry"`
+	Usages      []string `json:"usages" yaml:"usages"`
 }
 
 // A CertificateRequest encapsulates the API interface to the
